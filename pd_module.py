@@ -109,7 +109,7 @@ X = df[['use_of_ip', 'abnormal_url', 'google_index', 'www', '@', '?', '-', '=', 
 #Target Variable
 y = df['type']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.2,shuffle=True, random_state=5)
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.5,shuffle=True, random_state=10)
 
 rf = RandomForestClassifier(n_estimators=100,max_features='sqrt')
 rf.fit(X_train,y_train)
