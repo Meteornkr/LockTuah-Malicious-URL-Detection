@@ -10,7 +10,7 @@ When a user enters a URL and submits it, the application extracts key features f
 **How to use this program?**
 1. clone the file.
 2. save it in your desired directory.
-3. open the terminal and type "pythin app.py".
+3. open the terminal and type "python app.py".
 4. enter a URL to check its safety.
 
 make sure that all the modules are installed in your system
