@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PD Url</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>URL Prediction</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Malicious Link Detector</h1>
+    <form action="/predict" method="post">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Predict</button>
+    </form>
+    
+    {% if prediction %}
+        <div class="prediction">
+            <p>This link is "{{ url }}": {{ prediction }}</p>
+        </div>
+    {% endif %}
+    </div>
+</body>
+</html>
