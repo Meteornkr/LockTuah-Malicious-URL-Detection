@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 import numpy as np
 from pd_module import rf, main
 
+
 app = Flask(__name__)
 
 # Define the prediction function using your existing code
@@ -20,11 +21,11 @@ def get_prediction_from_url(test_url):
     if pred[0] == "benign":
         return "SAFE"
     elif pred[0] == "defacement":
-        return "DEFACEMENT"
+        return "MALICIOUS"
     elif pred[0] == "phishing":
-        return "PHISHING"
+        return "MALICIOUS"
     elif pred[0] == "malware":
-        return "MALWARE"
+        return "MALICIOUS"
     else:
         return "UNKNOWN"
 

@@ -8,6 +8,7 @@ import seaborn as sns
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 
+
 df = pd.read_csv('malicious_phish.csv')
 
 import re
@@ -109,12 +110,14 @@ X = df[['use_of_ip', 'abnormal_url', 'google_index', 'www', '@', '?', '-', '=', 
 #Target Variable
 y = df['type']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.5,shuffle=True, random_state=10)
+# Train Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.2,shuffle=True, random_state=5)
 
-rf = RandomForestClassifier(n_estimators=100,max_features='sqrt')
+# Random Forest
+rf = RandomForestClassifier(n_estimators=100,max_features='sqrt',class_weight='balanced')
 rf.fit(X_train,y_train)
 y_pred_rf = rf.predict(X_test)
-print(classification_report(y_test,y_pred_rf,target_names=['benign','malware', 'phishing', 'defacement']))
+print(classification_report(y_test,y_pred_rf,target_names=['benign', 'defacement','phishing','malware']))
 
 score = metrics.accuracy_score(y_test, y_pred_rf)
 print("accuracy:   %0.3f" % score)
